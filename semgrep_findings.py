@@ -1,5 +1,6 @@
 import json
 import os
+from datetime import datetime, timezone
 import requests
 
 TOKEN = os.environ["SEMGREP_API_TOKEN"]  # set this first
