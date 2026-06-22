@@ -3,7 +3,12 @@ import os
 import requests
 
 TOKEN = os.environ["SEMGREP_API_TOKEN"]  # set this first
-SINCE = "2026-01-01T00:00:00Z"
+
+# Set the start date here in plain (year, month, day) form.
+# The API wants a Unix timestamp (a number), so we convert it below.
+SINCE_DATE = datetime(2026, 1, 1, tzinfo=timezone.utc)   # <-- change the date here
+SINCE = SINCE_DATE.timestamp()
+
 API = "https://semgrep.dev/api/v1"
 
 session = requests.Session()
